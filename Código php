@@ -1,0 +1,136 @@
+<?php  require_once('funciones.php');?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/estilos.css">
+    <title>Suscribete.</title>
+</head>
+<body>
+<?php
+   $hostname_con = "p:localhost";
+   $database_con = "mybiblioteca";
+   $username_con = "root";
+   $password_con = ""; 
+
+  // Create connection
+  $con = mysqli_connect($hostname_con, $username_con, $password_con, $database_con);
+  mysqli_set_charset($con, 'utf8');
+
+  // Para todos los registros
+  $query_DatosConsulta = sprintf("SELECT * FROM usuarios");
+  $DatosConsulta = mysqli_query($con, $query_DatosConsulta) or die(mysqli_error($con));
+  $row_DatosConsulta = mysqli_fetch_assoc($DatosConsulta);
+  $totalRows_DatosConsulta = mysqli_num_rows($DatosConsulta);
+
+// Prara solo un autor
+  $query_DatosConsultaU = sprintf("SELECT * FROM usuarios WHERE NU=8");
+  $DatosConsultaU = mysqli_query($con, $query_DatosConsultaU) or die(mysqli_error($con));
+  $row_DatosConsultaU = mysqli_fetch_assoc($DatosConsultaU);
+  $totalRows_DatosConsultaU = mysqli_num_rows($DatosConsultaU);
+  
+
+  if($totalRows_DatosConsulta > 0)
+  {
+  do {
+     echo $row_DatosConsulta["NU"];
+     echo " ";
+     echo $row_DatosConsulta["Nombre"];
+     echo " ";
+     echo $row_DatosConsulta["Edad"];
+     echo " ";
+     echo $row_DatosConsulta["Estado"];
+     
+     echo "<br>";
+    } while ($row_DatosConsulta = mysqli_fetch_assoc($DatosConsulta));
+  }
+
+    // Insertar
+    if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "fromInsertar")) {
+      $insertSQL = sprintf("INSERT INTO usuarios (Nombre, Edad, Estado) VALUES (%s, %s, %s)",
+                  GetSQLValuesString($_POST["strNombre"], "text"),
+                  GetSQLValuesString($_POST["strEdad"], "int"),
+                  GetSQLValuesString($_POST["strEstado"], "text"));
+     $Result1 = mysqli_query($con, $insertSQL) or die(mysqli_error($con));
+      $insertGoTo = "index.php";
+      header(sprintf("Location: %s", $insertGoTo));
+    }
+      
+      // Borrar
+      if ((isset($_POST["MM_delete"])) && ($_POST["MM_delete"] == "fromBorrar")) {
+        $query_Delete = sprintf("DELETE FROM usuarios WHERE NU=%s",
+                    GetSQLValuesString(1, "text"));
+        $Result1 = mysqli_query($con, $query_Delete) or die(mysqli_error($con));
+        $insertGoTo = "index.php";
+        header(sprintf("Location: %s", $insertGoTo));
+      } 
+
+      // Actualisar
+      if ((isset($_POST["MM_update"])) && ($_POST["MM_update"] == "fromActualisar")) {
+        $updateSQL = sprintf("UPDATE usuarios SET Nombre=%s, Edad=%s, Estado=%s WHERE NU=2",
+            GetSQLValuesString($_POST["strNombre"], "text"),
+            GetSQLValuesString($_POST["strEdad"], "int"),
+            GetSQLValuesString($_POST["strEstado"], "text"), 
+            GetSQLValuesString($_POST["strNU"], "int"));
+        
+        $Result1 = mysqli_query($con, $updateSQL) or die(mysqli_error($con));
+        $insertGoTo = "index.php";
+        header(sprintf("Location: %s", $insertGoTo));
+    }
+    
+ 
+  mysqli_close($con);
+  
+?>
+
+    <!-- Incertar -->
+    <form action= "index.php" method="post" id="fromInsertar" role="form" name="fromInsertar">
+     <div>
+         <label>Nombre:</label>
+         <input name="strNombre" class="from-control" id="strNombre" placeholder="Escribe el nombre">
+     </div>
+     <div>
+         <label>Edad:</label>
+         <input name="strEdad" class="from-control" id="strEdad" placeholder="Escribe tu edad">
+     </div>
+     <div>
+         <label>Estado:</label>
+         <input name="strEstado" class="from-control" id="strEstado" placeholder="Escribe tu estado">
+     </div>
+    
+     <input name="MM_insert" type="hidden" id="MM_insert" value="fromInsertar">
+     <button type="submit" class="btn btn-success">Añadir</button> 
+   </form> 
+
+   <!-- Borrar -->
+   <form action= "index.php" method="post" id="fromBorrar" role="form" name="fromBorrar">
+     <input name="MM_delete" type="hidden" id="MM_delete" value="fromBorrar">
+     <button type="submit" class="btn btn-success">Borrar</button>
+   </form>
+
+   <!-- Actualisar -->
+   <form action= "index.php" method="post" id="fromActualisar" role="form" name="fromActualisar">
+     <div>
+         <label>NU:</label>
+         <input name="strNA" class="from-control" id="strNA" placeholder="Escribe el NA" >
+     </div>
+     <div>
+         <label>Nombre:</label>
+         <input name="strNombre" class="from-control" id="strNombre" placeholder="Escribe el nombre">
+     </div>
+     <div>
+         <label>Edad:</label>
+         <input name="strEdad" class="from-control" id="strEdad" placeholder="Escribe tu edad">
+     </div>
+     <div>
+         <label>Estado:</label>
+         <input name="strEstado" class="from-control" id="strEstado" placeholder="Escribe tu estado">
+     </div>
+     
+     <input name="MM_update" type="hidden" id="MM_update" value="fromActualisar">
+     <button type="submit" class="btn btn-success">Actualizar</button> 
+    </form>
+
+  </body>
+</html>
