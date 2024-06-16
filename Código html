@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stortcut icon" href="links/imagenes/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="CSS/brands.css">
+    <link rel="stylesheet" href="CSS/fontawesome.css">
+    <link rel="stylesheet" href="CSS/solid.css">
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+   
+    <!-- Aqui esta la hoja de estilo. -->
+     <link rel="stylesheet" href="CSS/estilos.css">
+
+    <style>
+      .parallax {
+        /* The image used */
+        background-image: url("https://images.pexels.com/photos/396547/pexels-photo-396547.jpeg?cs=srgb&dl=pexels-francesco-ungaro-396547.jpg&fm=jpg");
+      
+        /* Set a specific height */
+        min-height: 500px;
+      
+        /* Create the parallax scrolling effect */
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      </style>
+    <title>Mi bibliteca.</title>
+</head>
+<body>
+
+
+
+<!-- Aqui empieza la barra de navehgación. -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Mi Biblioteca.</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+             
+              <li class="nav-item">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Recomendacion</a>
+                <ul class="dropdown-menu">
+                  <li><a href="https://the-youngpianis.my.canva.site/estrik16" target="_blank">Lee un nuevo libro "The Young Pianist"</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                 Descubre nuestros libros
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Exclusivos</a></li>
+                  <li><a class="dropdown-item" href="#">Gratis</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#"><i class="fa-solid fa-house-user"></i>Suscribete para más</a></li>
+                </ul>
+              
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+    <!-- Las pestañitas -->
+  <div class="parallax">
+    <div class="container-fluid" style="padding: 10px 5% 1px;">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="card" style="width: 18rem;">
+            <img src="Imagenes/Invictus.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Libros exclusivos</h5>
+              <div class="collapse" id="collapseExample">
+                  <p class="card-text">Puedes leer en dijital, a un precio más bajo.
+                    Es mucho más economico que comprar el libro en fisico.
+                    Que ¡Claro! tambien puedes comprar el libro fisico.
+                  
+                    <a href="https://www.gandhi.com.mx/libros" role="button">
+                      Descubre libros exclicivos aqui
+                       </a>
+                  </p>
+                 
+              </div>
+                    <a class="btn btn-danger" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                      ¡Haga clik aqui!
+                    </a>
+            </div>
+          </div>
+        </div>            
+        <div class="col-md-3">
+          <div class="card" style="width: 18rem;">
+            <img src="Imagenes/Portada de  libro.jpeg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Libros gratis.</h5>
+              <div class="collapse" id="collapseExample2">
+                <p class="card-text">Aqui puedes leer libros en linea sin pagar absolutamente nada.
+                  <a href="https://booknet.com/es/top/all" role="button">
+                   Descubre libros gratis aqui
+                    </a>
+
+                </p>
+             </div>
+                  <a class="btn btn-info"   data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2">
+                    ¡HAga clik aquí!
+                  </a>
+                  
+                </div>
+          </div>
+        </div>
+          <div class="col-md-3">
+              <div class="card" style="width: 18rem;">
+                <img src="Imagenes/foto de libros.jpeg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Suscribete</h5>
+    
+                  <div class="collapse" id="collapseExample3">
+                    <p class="card-text">Suscribete para saber de las novedades, nuevos libros por ser publicados,nuevos autores, libros que te faltan leer, etc. </p>
+                </div>
+                      <a class="btn btn-light" data-bs-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false" aria-controls="collapseExample3">
+                      ¡Suscribete!
+                       </a>
+                  <div class="collapse" id="collapseExample3">
+                    <div class="card card-body">
+                     <a href="index.php" role="button">
+                       Suscribirse
+                       </a>
+                         
+                        
+
+                    </div>
+                  </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Ventana modal -->
+<div class="container" style="margin-top: 10px;" >
+   <div class="row" >
+      <!-- Button trigger modal -->
+ <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="color:rgb(0, 0, 0)"  >
+Lee "The young pianist" !!!
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel"> "THE YOUNG PIANIST" </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src="Imagenes/manos piano.jpg" alt="..." style="padding: 10px;">
+        <p id="Modal" style="font-family: Georgia, 'Times New Roman', serif;" > 
+          "Recuerdo que un dia te dije:
+          -Si un dia mueres, te escribiré un libro.
+          
+          Este libro que dejo hoy en tus manos, es prueba de mi luto tan profundo y eterno."
+
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Más tarde.</button>
+        <button type="button" class="btn btn-primary">Leer el libro.</button>
+      </div>
+    </div>
+  </div>
+</div>
+   </div>
+</div>
+
+
+     
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="Js/brands.js"></script>
+    <script src="Js/fontawesome.js"></script>
+    <script src="Js/solid.js"></script>
+</body>
+</html>
